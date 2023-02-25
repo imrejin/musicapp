@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+
+<div style="text-align:left;">
+  <a href="{% url 'musicapp:add_music'  %}" class="btn btn-primary" style="background-color: red;"> Add Music..!</a>
+</div>
+    <div style="display: flex; flex-wrap: wrap;">
+        {% for i in music_list %}
+       <div class="col-md-3" >
+           <div class="card" style="width: 16rem; ">
+               <img src="{{i.img.url}}" class="card-img-top" alt="" ="100px;" height="250">
+               <div class="card-body"></div>
+                   <h5 class="card-title">{{i.name}}</h5>
+                   <p class="card-text">{{i.desc}}.</p>
+                   <a href="{% url 'musicapp:detail' i.id %}" " class="btn btn-primary">OPEN</a>
+
+</div>
+
+
+  </div>
+        {% endfor %}
+</div>
+  </div>
+{% endblock %}
